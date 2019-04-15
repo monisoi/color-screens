@@ -5,14 +5,8 @@ export default class RedScreen8 extends React.Component {
   static navigationOptions = {
     title: '#FF0000',
   };
-
   render() {
-    return (
-      <View
-        style={styles.container}
-      >
-      </View>
-    );
+    return <View style={styles.container} />;
   }
 }
 

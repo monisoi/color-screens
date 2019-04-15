@@ -1,25 +1,15 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
+import TouchableComponent from '../components/TouchableComponent';
+
+const color = '#E0E0F8';
+const nextScreen = 'Blue3';
 
 export default class BlueScreen2 extends React.Component {
   static navigationOptions = {
-    title: '#E0E0F8',
+    title: color,
   };
-
   render() {
-    return (
-      <TouchableOpacity
-        onPress={() => this.props.navigation.navigate('Blue3')}
-        style={styles.container}
-      >
-      </TouchableOpacity>
-    );
+    return TouchableComponent(this.props.navigation, color, nextScreen);
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E0E0F8',
-  },
-});

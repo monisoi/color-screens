@@ -1,25 +1,15 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
+import TouchableComponent from '../components/TouchableComponent';
+
+const color = '#FE2E2E';
+const nextScreen = 'Red8';
 
 export default class RedScreen7 extends React.Component {
   static navigationOptions = {
-    title: '#FE2E2E',
+    title: color,
   };
-
   render() {
-    return (
-      <TouchableOpacity
-        onPress={() => this.props.navigation.navigate('Red8')}
-        style={styles.container}
-      >
-      </TouchableOpacity>
-    );
+    return TouchableComponent(this.props.navigation, color, nextScreen);
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FE2E2E',
-  },
-});

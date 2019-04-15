@@ -5,7 +5,6 @@ export default class BlueScreen8 extends React.Component {
   static navigationOptions = {
     title: '#0000FF',
   };
-
   render() {
     return (
       <View
