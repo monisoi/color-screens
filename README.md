@@ -1,0 +1,4 @@
+# color-screens
+React Navigationの使い方を学ぶために作りました。  
+DrawerNavigatorの中に並列で赤,緑,青のScreenのStackNavigatorを入れています。  
+React NavigationではデフォルトでStackNavigatorのScreenを記憶しますが、別の色のStackNavigatorに遷移したときにはStackをリセットするようにしています。
