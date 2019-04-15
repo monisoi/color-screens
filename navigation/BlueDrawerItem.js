@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
+import { getStackNavigator, DrawerItem } from './CommonDrawerItem';
 
 import BlueScreen1 from '../screens/BlueScreen1';
 import BlueScreen2 from '../screens/BlueScreen2';
@@ -22,41 +23,8 @@ const stackScreens = {
   Blue8: BlueScreen8,
 };
 
-export const BlueStack = createStackNavigator(
-  stackScreens,
-  {
-    initialRouteName: 'Blue1',
-  }
+export const BlueStack = getStackNavigator(stackScreens, 'Blue');
+
+export const BlueDrawerItem = ({ navigation }) => (
+  <DrawerItem navigation={navigation} rootName="Blue" stackScreens={stackScreens} />
 );
-
-const resetAction = StackActions.reset({
-  index: 0,
-  key: null,
-  actions: [
-    NavigationActions.navigate({ routeName: 'Blue1' }),
-  ],
-});
-
-export const BlueDrawerItem = props => {
-  return (
-    <TouchableOpacity
-      onPress={() => Object.keys(stackRouters).includes(props.navigation.state.routeName) ?
-        resetAction :
-        props.navigation.navigate('Blue1')}
-      style={styles.drawerItem}
-    >
-      <Text style={styles.title}>Blue</Text>
-    </TouchableOpacity>
-  );
-};
-
-const styles = StyleSheet.create({
-  drawerItem: {
-    backgroundColor: 'blue',
-  },
-  title: {
-    padding: 10,
-    fontSize: 18,
-    fontWeight: '600',
-  },
-});

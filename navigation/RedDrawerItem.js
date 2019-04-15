@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
+import { getStackNavigator, DrawerItem } from './CommonDrawerItem';
 
 import RedScreen1 from '../screens/RedScreen1';
 import RedScreen2 from '../screens/RedScreen2';
@@ -12,51 +13,18 @@ import RedScreen7 from '../screens/RedScreen7';
 import RedScreen8 from '../screens/RedScreen8';
 
 const stackScreens = {
-    Red1: RedScreen1,
-    Red2: RedScreen2,
-    Red3: RedScreen3,
-    Red4: RedScreen4,
-    Red5: RedScreen5,
-    Red6: RedScreen6,
-    Red7: RedScreen7,
-    Red8: RedScreen8,
+  Red1: RedScreen1,
+  Red2: RedScreen2,
+  Red3: RedScreen3,
+  Red4: RedScreen4,
+  Red5: RedScreen5,
+  Red6: RedScreen6,
+  Red7: RedScreen7,
+  Red8: RedScreen8,
 };
 
-export const RedStack = createStackNavigator(
-  stackScreens,
-  {
-    initialRouteName: 'Red1',
-  }
+export const RedStack = getStackNavigator(stackScreens, 'Red');
+
+export const RedDrawerItem = ({ navigation }) => (
+  <DrawerItem navigation={navigation} rootName="Red" stackScreens={stackScreens} />
 );
-
-const resetAction = StackActions.reset({
-  index: 0,
-  key: null,
-  actions: [
-    NavigationActions.navigate({ routeName: 'Red1' }),
-  ],
-});
-
-export const RedDrawerItem = props => {
-  return (
-    <TouchableOpacity
-      onPress={() => Object.keys(stackRouters).includes(props.navigation.state.routeName) ?
-        resetAction :
-        props.navigation.navigate('Red1')}
-      style={styles.drawerItem}
-    >
-      <Text style={styles.title}>Red</Text>
-    </TouchableOpacity>
-  );
-};
-
-const styles = StyleSheet.create({
-  drawerItem: {
-    backgroundColor: 'red',
-  },
-  title: {
-    padding: 10,
-    fontSize: 18,
-    fontWeight: '600',
-  },
-});
