@@ -6,14 +6,14 @@ export default rootName => {};
 
 export const getStackNavigator = (stackScreens, rootName) =>
   createStackNavigator(stackScreens, {
-    initialRouteName: `${rootName}1`,
+    initialRouteName: rootName,
   });
 
 const resetAction = rootName =>
   StackActions.reset({
     index: 0,
     key: null,
-    actions: [NavigationActions.navigate({ routeName: `${rootName}1` })],
+    actions: [NavigationActions.navigate({ routeName: rootName })],
   });
 
 const getBackgroundColor = rootName => {
@@ -35,7 +35,7 @@ export const DrawerItem = props => {
       onPress={() =>
         Object.keys(props.stackScreens).includes(props.navigation.state.routeName)
           ? resetAction(props.rootName)
-          : props.navigation.navigate(`${props.rootName}1`)
+          : props.navigation.navigate(props.rootName)
       }
       style={{ backgroundColor: getBackgroundColor(props.rootName) }}
     >
