@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export default class RedScreen8 extends React.Component {
+export default class RedEndScreen extends React.Component {
   static navigationOptions = {
     title: '#FF0000',
   };

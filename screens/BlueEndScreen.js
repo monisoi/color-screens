@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export default class BlueScreen8 extends React.Component {
+export default class BlueEndScreen extends React.Component {
   static navigationOptions = {
     title: '#0000FF',
   };
